@@ -38,6 +38,14 @@ class PrimaryButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(radius),
         ),
+        // The theme's full-width minimum only applies when expanded;
+        // inline buttons size to their content.
+        minimumSize: expanded
+            ? null
+            : const Size(120, AppTheme.buttonHeight),
+        padding: expanded
+            ? null
+            : const EdgeInsets.symmetric(horizontal: 24),
       ),
       child: loading
           ? const SizedBox(
