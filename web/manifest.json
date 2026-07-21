@@ -1,11 +1,11 @@
 {
-    "name": "trimly",
-    "short_name": "trimly",
+    "name": "Trimly",
+    "short_name": "Trimly",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#141414",
+    "theme_color": "#141414",
+    "description": "Trimly — a premium barber booking experience.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
