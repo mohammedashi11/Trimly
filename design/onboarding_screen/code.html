@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TRIMLY Onboarding</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Manrope -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "outline-variant": "#4d4635",
+                  "on-primary": "#3c2f00",
+                  "inverse-on-surface": "#313030",
+                  "surface-variant": "#353534",
+                  "secondary": "#c8c6c5",
+                  "on-error-container": "#ffdad6",
+                  "primary": "#f2ca50",
+                  "on-secondary": "#303030",
+                  "surface-container": "#201f1f",
+                  "surface-bright": "#393939",
+                  "surface": "#131313",
+                  "on-secondary-fixed-variant": "#474746",
+                  "error": "#ffb4ab",
+                  "on-tertiary": "#082b72",
+                  "on-background": "#e5e2e1",
+                  "on-tertiary-fixed": "#00174b",
+                  "on-surface-variant": "#d0c5af",
+                  "on-tertiary-container": "#254188",
+                  "on-tertiary-fixed-variant": "#27438a",
+                  "surface-container-low": "#1c1b1b",
+                  "secondary-fixed": "#e4e2e1",
+                  "inverse-surface": "#e5e2e1",
+                  "on-primary-fixed-variant": "#574500",
+                  "secondary-container": "#474746",
+                  "surface-container-highest": "#353534",
+                  "primary-fixed-dim": "#e9c349",
+                  "tertiary": "#bfcdff",
+                  "secondary-fixed-dim": "#c8c6c5",
+                  "surface-container-lowest": "#0e0e0e",
+                  "inverse-primary": "#735c00",
+                  "on-primary-container": "#554300",
+                  "on-primary-fixed": "#241a00",
+                  "primary-container": "#d4af37",
+                  "background": "#131313",
+                  "outline": "#99907c",
+                  "on-error": "#690005",
+                  "on-secondary-container": "#b6b5b4",
+                  "surface-container-high": "#2a2a2a",
+                  "primary-fixed": "#ffe088",
+                  "on-secondary-fixed": "#1b1c1c",
+                  "surface-dim": "#131313",
+                  "error-container": "#93000a",
+                  "tertiary-container": "#97b0ff",
+                  "tertiary-fixed": "#dbe1ff",
+                  "surface-tint": "#e9c349",
+                  "on-surface": "#e5e2e1",
+                  "tertiary-fixed-dim": "#b4c5ff"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "container-max": "1200px",
+                  "stack-sm": "8px",
+                  "stack-md": "16px",
+                  "section-gap": "64px",
+                  "margin-mobile": "20px",
+                  "gutter": "24px",
+                  "margin-desktop": "40px",
+                  "stack-lg": "32px"
+          },
+          "fontFamily": {
+                  "label-sm": ["Manrope"],
+                  "body-lg": ["Manrope"],
+                  "display-lg": ["Manrope"],
+                  "headline-md": ["Manrope"],
+                  "headline-lg": ["Manrope"],
+                  "body-md": ["Manrope"],
+                  "headline-lg-mobile": ["Manrope"],
+                  "label-md": ["Manrope"]
+          },
+          "fontSize": {
+                  "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                  "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                  "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                  "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                  "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #131313;
+      color: #e5e2e1;
+      font-family: 'Manrope', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Gradient overlay for smooth blend */
+    .image-overlay {
+      background: linear-gradient(to top, #131313 0%, transparent 100%);
+    }
+    .active-dot {
+      background-color: #d4af37;
+    }
+    .inactive-dot {
+      background-color: #474746;
+    }
+    .custom-transition {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  </style>
+</head>
+<body class="bg-background flex flex-col min-h-screen">
+<!-- Shell Visibility: Suppressed for Transactional/Onboarding as per Mandate -->
+<main class="flex-grow flex flex-col max-w-container-max mx-auto w-full relative overflow-hidden">
+<!-- Top Section: Moody Image with Gradient Fade -->
+<div class="relative w-full h-[60vh] md:h-[65vh] overflow-hidden">
+<img alt="Moody grayscale photograph of a professional barber performing a precise fade cut on a client in a luxury grooming lounge. The lighting is low and dramatic, highlighting the silver straight razor and the focused expression of the barber. The background features dark wood textures and high-end salon equipment, evoking an atmosphere of exclusivity and meticulous craftsmanship." class="w-full h-full object-cover filter grayscale contrast-125 brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5hJhnuutN6Oj3Cv54w8LfG90SCw2gzNiU1wEzhz_3P7GqtMTtjq0IhpgC5p7IHOvbUUZxkw5u02Fx0tVoVIwO9L3L6VOmwPE8-jaYFSiaQ70hposjeSWgfsOXT_p9JUz-8Vtwo2HJkXZZmSW7DaSGArh9yJR-9iW8mRRkRbsFX4xICabUky_Im5NJZWFty2-JuI6mgkcSek2HiK2K9bqzGKIb0J6IC3GO8rALmjoWf8BzUWn5oKEX"/>
+<!-- Subtle Gradient Fade into Background -->
+<div class="absolute inset-0 image-overlay"></div>
+</div>
+<!-- Bottom Section: Content Canvas -->
+<div class="px-margin-mobile md:px-margin-desktop py-stack-lg flex flex-col justify-end flex-grow gap-stack-md bg-background">
+<!-- Headline & Subtitle Group -->
+<div class="space-y-stack-sm mb-stack-md">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background tracking-tight">
+          Book your next cut in seconds
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Experience premium grooming with the city's finest barbers at your fingertips.
+        </p>
+</div>
+<!-- Navigation Indicators -->
+<div class="flex items-center gap-2 mb-stack-lg">
+<div class="h-1.5 w-6 rounded-full active-dot"></div>
+<div class="h-1.5 w-1.5 rounded-full inactive-dot"></div>
+<div class="h-1.5 w-1.5 rounded-full inactive-dot"></div>
+</div>
+<!-- Action Button -->
+<div class="w-full pb-stack-lg">
+<button class="w-full py-4 bg-primary-container text-on-primary font-label-md text-label-md rounded-xl hover:opacity-90 active:scale-[0.98] custom-transition flex items-center justify-center gap-2">
+          Get Started
+          <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<script>
+    // Simple micro-interaction for the button
+    const btn = document.querySelector('button');
+    btn.addEventListener('click', () => {
+      // Logic for moving to next screen would go here
+      console.log('Navigating to authentication...');
+    });
+    
+    // Add subtle parallax effect on scroll (for desktop mainly)
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const img = document.querySelector('img');
+      if (img) {
+        img.style.transform = `translateY(${scrolled * 0.1}px)`;
+      }
+    });
+  </script>
+</body></html>

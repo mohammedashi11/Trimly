@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trimly | Premium Grooming</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#ffdad6",
+                        "surface-dim": "#131313",
+                        "primary": "#f2ca50",
+                        "secondary-fixed": "#e4e2e1",
+                        "surface-container-high": "#2a2a2a",
+                        "on-secondary-fixed-variant": "#474746",
+                        "secondary": "#c8c6c5",
+                        "on-surface-variant": "#d0c5af",
+                        "tertiary-container": "#97b0ff",
+                        "on-secondary-container": "#b6b5b4",
+                        "primary-fixed": "#ffe088",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary": "#082b72",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary": "#303030",
+                        "outline-variant": "#4d4635",
+                        "on-tertiary-fixed": "#00174b",
+                        "surface-container": "#201f1f",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "error": "#ffb4ab",
+                        "primary-container": "#d4af37",
+                        "tertiary": "#bfcdff",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary-fixed-dim": "#b4c5ff",
+                        "surface-variant": "#353534",
+                        "surface": "#131313",
+                        "on-tertiary-fixed-variant": "#27438a",
+                        "on-primary-fixed-variant": "#574500",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary-fixed": "#241a00",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "outline": "#99907c",
+                        "on-primary": "#3c2f00",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary-container": "#254188",
+                        "on-error": "#690005",
+                        "inverse-primary": "#735c00",
+                        "surface-tint": "#e9c349",
+                        "surface-container-highest": "#353534",
+                        "surface-bright": "#393939",
+                        "inverse-on-surface": "#313030",
+                        "background": "#131313",
+                        "tertiary-fixed": "#dbe1ff",
+                        "on-primary-container": "#554300",
+                        "error-container": "#93000a",
+                        "secondary-container": "#474746"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1200px",
+                        "stack-md": "16px",
+                        "margin-desktop": "40px",
+                        "section-gap": "64px",
+                        "margin-mobile": "20px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "headline-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; background-color: #141414; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-card { background: rgba(32, 31, 31, 0.6); backdrop-filter: blur(10px); }
+        .active-ring { ring: 1px solid #f2ca50; }
+    </style>
+</head>
+<body class="text-on-background min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky z-50 bg-background/80 backdrop-blur-md border-b border-surface-container-high">
+<div class="flex justify-between items-center px-margin-mobile py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border border-primary/30 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up professional studio portrait of a stylish young man with a sharp, well-maintained fade haircut and a groomed beard. The lighting is dramatic and warm, emphasizing the textures of the hair. The background is a dark, sophisticated charcoal grey, consistent with a high-end luxury barber lounge aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNP1gz0uDfx62tx47bzuM7ruBzgTYugRNxFy-YAWS1PTW8G_5aWdRn5O_vqSPN47Wr_Vzw7QZnFgiBShQoQwhKY2RInhj3kZoIBmqU-2YMDVkzIv86dbM_ShuGrn6HpiTY6lsZY6fSgc-tQfDXmMqbLpy-3ZvlY9doNFIelx9YVkfMgsahagUB1t9BPerAL0cn4kr03VYU2GNKBIr-wHk83HPCel2kRFDH-l8-S1_E66Gppptyn0UL"/>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Good evening,</p>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Mohammed</h1>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-surface-container-high hover:bg-surface-variant/50 transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile">
+<!-- Search Bar -->
+<section class="mt-stack-lg">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full h-14 pl-12 pr-4 bg-surface-container-low border border-surface-container-high rounded-full focus:outline-none focus:border-primary transition-all text-body-md placeholder:text-outline" placeholder="Search for shops, barbers or services..." type="text"/>
+</div>
+</section>
+<!-- Categories -->
+<section class="mt-stack-lg">
+<div class="flex gap-stack-sm overflow-x-auto no-scrollbar pb-2">
+<button class="px-6 py-2 bg-primary text-on-primary font-label-md text-label-md rounded-full whitespace-nowrap transition-transform active:scale-95">Haircut</button>
+<button class="px-6 py-2 border border-surface-container-high text-on-surface font-label-md text-label-md rounded-full whitespace-nowrap hover:border-primary transition-colors active:scale-95">Beard</button>
+<button class="px-6 py-2 border border-surface-container-high text-on-surface font-label-md text-label-md rounded-full whitespace-nowrap hover:border-primary transition-colors active:scale-95">Shave</button>
+<button class="px-6 py-2 border border-surface-container-high text-on-surface font-label-md text-label-md rounded-full whitespace-nowrap hover:border-primary transition-colors active:scale-95">Coloring</button>
+<button class="px-6 py-2 border border-surface-container-high text-on-surface font-label-md text-label-md rounded-full whitespace-nowrap hover:border-primary transition-colors active:scale-95">Massage</button>
+</div>
+</section>
+<!-- Top Rated Near You -->
+<section class="mt-section-gap">
+<div class="flex justify-between items-center mb-stack-md">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile font-bold">Top Rated Near You</h2>
+<a class="text-primary font-label-md text-label-md" href="#">View all</a>
+</div>
+<div class="flex gap-gutter overflow-x-auto no-scrollbar pb-4 -mx-margin-mobile px-margin-mobile">
+<!-- Shop Card 1 -->
+<div class="min-w-[280px] md:min-w-[320px] rounded-xl border border-surface-container-high overflow-hidden group cursor-pointer">
+<div class="h-40 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="The interior of a luxurious, modern barbershop named 'The Classic Cut'. The space features dark wood paneling, premium leather barber chairs in black, and warm amber atmospheric lighting. The design is minimalist and sophisticated, emphasizing a quiet, high-end grooming experience in a dark charcoal and gold color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb-XZLER7DWMRtHlN2lVbG5XGjPNdtCShKaWS7iaBQucdKrEP1DRgsvRpynRwwQ6wi2Hk82yO5DCMTnQUp0h2pdCmS39ESW9GVQGzkmZR6-0aXF27pYdfZ-clVA-rp3JxgBGq9SI9TLT-3D3CzpmnB484EOS4Q9uDhGIr9PKdTD3OXWzjHb8L-vG4qNK7-iiOutMx_I3f0r30FqGqY-2wrBqa8cKus-MoOIxpSb4hyfwWau0gBUZd4"/>
+<div class="absolute top-3 right-3 bg-background/80 backdrop-blur-sm px-2 py-1 rounded-lg flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm text-primary">4.9</span>
+</div>
+</div>
+<div class="p-stack-md">
+<h3 class="font-headline-md text-headline-md font-bold mb-1">The Classic Cut</h3>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="text-label-md font-label-md">1.2 km • Manhattan</span>
+</div>
+</div>
+</div>
+<!-- Shop Card 2 -->
+<div class="min-w-[280px] md:min-w-[320px] rounded-xl border border-surface-container-high overflow-hidden group cursor-pointer">
+<div class="h-40 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Interior of 'Urban Grooming', a trendy metropolitan barbershop. Exposed brick walls, neon gold signage, and sleek industrial furniture. The mood is energetic yet refined, with focused lighting on professional grooming stations. The visual style follows the dark-mode minimalism aesthetic with metallic gold accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9f4X6gfj9DfyYDs28D69d0e2VegviJ-jc3C3ojiht0pngdwb2i-kcz_O8SEWs3NGJEr7OcNGEkN_oA4wxbra-rLCO_ZciVNBapPNSTnAnMiMVB6MK6EMSoVC533HGXlX0ziKqy8TZ4apdW1GLIOehaOggnBLDrtDubWMCJS6iYImDhplNMrU1mR4rijgNNyUkHKh4OTfl5HoL9ewPuyJj-SUCEN7yVNf2-jiPBBbLPX-HPTHI3D7J"/>
+<div class="absolute top-3 right-3 bg-background/80 backdrop-blur-sm px-2 py-1 rounded-lg flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm text-primary">4.8</span>
+</div>
+</div>
+<div class="p-stack-md">
+<h3 class="font-headline-md text-headline-md font-bold mb-1">Urban Grooming</h3>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="text-label-md font-label-md">0.8 km • Brooklyn</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Popular Barbers -->
+<section class="mt-section-gap">
+<div class="flex justify-between items-center mb-stack-md">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile font-bold">Popular Barbers</h2>
+<a class="text-primary font-label-md text-label-md" href="#">View all</a>
+</div>
+<div class="flex flex-col gap-stack-md">
+<!-- Barber Item 1 -->
+<div class="flex items-center gap-4 p-4 rounded-xl border border-surface-container-high hover:border-primary/50 transition-colors cursor-pointer group">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of David Chen, a master barber. He has a sharp, meticulously detailed hairstyle and a friendly, confident expression. He is wearing a dark, premium barber apron. The background is a blurred, high-end grooming lounge with warm gold lighting accents and dark surfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcvAq_QGdYOJWamMgYDMaY8jA5JUtLXgS6YaDUo0pKu2mVgg2cn2TM5VqlPj7VzComK_5tOT4J8MG-XsfF7R4ic-hYNT2xAr7H2x-xNTgiG-BG483YjvkBeizBvM_qL7x16pDYsCRXIDqm-emoV2f75nzangYREihJPd7WCqAM8OLrmIl_vq1PsvYvpgfr3K2AWebnHBNd_tfCE-ekN__qtuGok4UE514-n7pg2tHBgVHhi8SAtLq5"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-headline-md text-headline-md font-bold">David Chen</h4>
+<p class="text-on-surface-variant text-label-md font-label-md">Fade Specialist</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm">5.0 (124 reviews)</span>
+</div>
+</div>
+<button class="px-4 py-2 bg-primary text-on-primary font-label-md text-label-md rounded-lg active:scale-90 transition-transform">Book</button>
+</div>
+<!-- Barber Item 2 -->
+<div class="flex items-center gap-4 p-4 rounded-xl border border-surface-container-high hover:border-primary/50 transition-colors cursor-pointer group">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Professional headshot of Sarah Miller, a master barber. She is shown in a stylish studio setting, with sophisticated lighting reflecting her mastery in grooming. She has a clean, professional appearance. The overall aesthetic is dark, moody, and luxurious, matching the premium brand identity of Trimly." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd9pgH37HQZCR3wskct6zlFsmvtHnSsTDf6IY8eDeEhmPNdzepxGuqXlT-_iHfEoOvEmXLv0O2My0omE2bokLF7XR3IK5ItQ56S15fmnJLDKPYX22cgJ62QzlVB5Ozp_FOihXZHkyozfEex7bWqNdNugiE8CbeZds17FZ7z6JrBHu0OGiZl5AWVpnxN0MLiqgIrn03Lge4k9BDGdQDfY0AN7dSggyJPIgmeVJBgI8_wx8zF71FKUAr"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-headline-md text-headline-md font-bold">Sarah Miller</h4>
+<p class="text-on-surface-variant text-label-md font-label-md">Beard Sculptor</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm">4.9 (98 reviews)</span>
+</div>
+</div>
+<button class="px-4 py-2 bg-primary text-on-primary font-label-md text-label-md rounded-lg active:scale-90 transition-transform">Book</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container border-t border-surface-container-high shadow-2xl">
+<div class="flex justify-around items-center h-20 px-4 max-w-container-max mx-auto">
+<!-- Home (Active) -->
+<button class="flex flex-col items-center justify-center text-primary font-bold group">
+<span class="material-symbols-outlined text-[28px] group-active:scale-90 transition-transform duration-200" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</button>
+<!-- Bookings -->
+<button class="flex flex-col items-center justify-center text-on-secondary-container hover:text-primary-fixed-dim transition-colors group">
+<span class="material-symbols-outlined text-[28px] group-active:scale-90 transition-transform duration-200">calendar_month</span>
+<span class="font-label-sm text-label-sm mt-1">Bookings</span>
+</button>
+<!-- Favorites -->
+<button class="flex flex-col items-center justify-center text-on-secondary-container hover:text-primary-fixed-dim transition-colors group">
+<span class="material-symbols-outlined text-[28px] group-active:scale-90 transition-transform duration-200">favorite</span>
+<span class="font-label-sm text-label-sm mt-1">Favorites</span>
+</button>
+<!-- Profile -->
+<button class="flex flex-col items-center justify-center text-on-secondary-container hover:text-primary-fixed-dim transition-colors group">
+<span class="material-symbols-outlined text-[28px] group-active:scale-90 transition-transform duration-200">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</button>
+</div>
+</nav>
+<!-- Floating Action Button (Only on Home) -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined text-[32px]">add</span>
+</button>
+<script>
+        // Simple micro-interactions for horizontal scroll shadows
+        document.querySelectorAll('.no-scrollbar').forEach(container => {
+            container.addEventListener('scroll', () => {
+                // Future enhancement: Dynamic scroll indicators
+            });
+        });
+
+        // Search interaction
+        const searchInput = document.querySelector('input');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('active-ring');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('active-ring');
+        });
+    </script>
+</body></html>

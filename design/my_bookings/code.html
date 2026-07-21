@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Bookings - Trimly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#ffe088",
+                        "tertiary-container": "#97b0ff",
+                        "on-secondary-container": "#b6b5b4",
+                        "on-surface-variant": "#d0c5af",
+                        "secondary": "#c8c6c5",
+                        "on-secondary-fixed-variant": "#474746",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary-fixed": "#e4e2e1",
+                        "primary": "#f2ca50",
+                        "surface-dim": "#131313",
+                        "on-error-container": "#ffdad6",
+                        "tertiary": "#bfcdff",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary-container": "#d4af37",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface-container": "#201f1f",
+                        "on-tertiary-fixed": "#00174b",
+                        "outline-variant": "#4d4635",
+                        "on-tertiary": "#082b72",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary": "#303030",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary-container": "#254188",
+                        "on-error": "#690005",
+                        "on-background": "#e5e2e1",
+                        "on-primary": "#3c2f00",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "outline": "#99907c",
+                        "on-primary-fixed": "#241a00",
+                        "tertiary-fixed-dim": "#b4c5ff",
+                        "surface-variant": "#353534",
+                        "surface": "#131313",
+                        "on-tertiary-fixed-variant": "#27438a",
+                        "on-primary-fixed-variant": "#574500",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary-container": "#474746",
+                        "error-container": "#93000a",
+                        "on-primary-container": "#554300",
+                        "tertiary-fixed": "#dbe1ff",
+                        "surface-bright": "#393939",
+                        "inverse-on-surface": "#313030",
+                        "background": "#131313",
+                        "surface-tint": "#e9c349",
+                        "surface-container-highest": "#353534",
+                        "inverse-primary": "#735c00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "container-max": "1200px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "gutter": "24px",
+                        "section-gap": "64px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "headline-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131313;
+            font-family: 'Manrope', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .tab-active {
+            position: relative;
+        }
+        .tab-active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 2px;
+            background-color: #f2ca50;
+        }
+    </style>
+</head>
+<body class="text-on-background">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-background dark:bg-background border-b border-outline-variant dark:border-outline-variant shadow-none">
+<div class="flex items-center justify-between px-margin-mobile md:px-margin-desktop py-4 w-full max-w-container-max mx-auto">
+<div class="cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary dark:text-primary">menu</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary tracking-tight">My Bookings</h1>
+<div class="cursor-pointer active:scale-95 transition-transform">
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A portrait of a sophisticated male client in a high-end barbershop setting. He has a perfectly groomed beard and a modern haircut. The background is softly blurred, showing warm golden lighting and dark wood paneling consistent with the Trimly luxury brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjO2V91ngLI53POuIF8n8Jc470c50vik0Y8bmWU4_TiLw_fwa1oZzqxw1iUiF2q2dTHvMRkVZ0ZoaVPOQ3JpLujA4FRvuGtoEzzXMMFTaNLvMUGCY7mfqRZuodT9C_FfnfSp5l0GU3WxBMotnY0MmKfygkuSHSfz_YIkmBu4gXEs4NAnvrHjuxsgVNJkdnRNfKqNyL4-kvsXZDKfZK9W37-wyGI2EpD4kD_YDWzl6t9P0o-Rny1T5u"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-32">
+<!-- Segmented Control / Tabs -->
+<div class="mt-stack-lg mb-section-gap">
+<div class="flex justify-center items-center gap-stack-lg border-b border-outline-variant/30 pb-2">
+<button class="tab-active font-label-md text-label-md text-primary transition-colors py-2 px-4" id="btn-upcoming" onclick="toggleView('upcoming')">
+                    Upcoming
+                </button>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-2 px-4" id="btn-past" onclick="toggleView('past')">
+                    Past
+                </button>
+</div>
+</div>
+<!-- Upcoming View -->
+<div class="flex flex-col gap-gutter" id="view-upcoming">
+<!-- Card 1 -->
+<div class="border border-[#2A2A2A] rounded-xl p-4 bg-surface-container-low/50 backdrop-blur-sm transition-all hover:border-primary/50 group">
+<div class="flex gap-4">
+<div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 rounded-lg overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="The interior of an exclusive barbershop called Trimly. It features vintage leather barber chairs in dark brown and brass. Dark wood paneling, exposed brick walls, and warm pendant lighting create a moody, luxury atmosphere. Multiple large ornate mirrors are visible on the left side." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNFRQWg1uxjg9s-hQe87gNmHP0wSj7EjXg8e6iKk0rfB9Tsmk4l_4mjH5a5Orh7igNR2J5CquwkO0xwmMWpOSQfTyh16ftbbky-jGnvylRA4VhGK5U1DloI3Rdp4xjM5a8AuwBJ5iwqd8SRyuAU89ynq0H8axGIR5JF2DcE1brKsJ87Y7kUhP1RARsIjEQzmTBDBcsX397pVisJ0Xpj86Bclco2Y88TGz3mjgeeW74mPxlSmie5Efn"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-grow">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-headline-md text-on-surface">Classic Haircut &amp; Beard Trim</h3>
+<span class="px-2 py-0.5 rounded border border-primary/30 bg-primary/10 text-primary font-label-sm text-label-sm">Confirmed</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Barber: Marcus Reed</p>
+<p class="font-label-md text-label-md text-primary mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                                Oct 24, 2023 • 2:30 PM
+                            </p>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6 mt-6 pt-4 border-t border-outline-variant/20">
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">edit_calendar</span>
+                        Reschedule
+                    </button>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-error transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+                        Cancel
+                    </button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="border border-[#2A2A2A] rounded-xl p-4 bg-surface-container-low/50 backdrop-blur-sm transition-all hover:border-primary/50 group">
+<div class="flex gap-4">
+<div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 rounded-lg overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A close-up of a professional barber performing a precision straight razor shave on a client. The lighting is low and focused, highlighting the metallic glint of the razor and the dark, sophisticated apron of the barber. The scene exudes high-end craftsmanship and attention to detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbEdTaXrkbGgGAyXiyXssvsyTRd6yHt-YAYeC4l4tpTSJ0paA-XyDRyfqrI3zDxx6NN2CJ12jSDV4jtnkSfDndmvwAmkksMg9byr5tnUsWRoFnpCyGZuwMRZfqzrEomOCrJ0OUqTHGmL_bUvhXy8dOM3pqMa4Jy3tygEC7fmz73qBalGJZVLCzrs0POqDVO2KXkjLXFr4Nouvl1jgOiOzI8huhW9rt9w3OSAVkrhhytjrnNGQJAV3m"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-grow">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-headline-md text-on-surface">Luxury Hot Towel Shave</h3>
+<span class="px-2 py-0.5 rounded border border-primary/30 bg-primary/10 text-primary font-label-sm text-label-sm">Confirmed</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Barber: Elias Thorne</p>
+<p class="font-label-md text-label-md text-primary mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                                Oct 29, 2023 • 11:00 AM
+                            </p>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6 mt-6 pt-4 border-t border-outline-variant/20">
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">edit_calendar</span>
+                        Reschedule
+                    </button>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-error transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+                        Cancel
+                    </button>
+</div>
+</div>
+</div>
+<!-- Past View (Hidden by default) -->
+<div class="hidden flex flex-col gap-gutter" id="view-past">
+<!-- Past Card 1 -->
+<div class="border border-[#2A2A2A] rounded-xl p-4 bg-surface-container-low/20 backdrop-blur-sm opacity-90">
+<div class="flex gap-4">
+<div class="w-20 h-20 md:w-28 md:h-28 flex-shrink-0 rounded-lg overflow-hidden border border-outline-variant grayscale group-hover:grayscale-0 transition-all">
+<img class="w-full h-full object-cover" data-alt="A vintage-style barbershop station with dark mahogany drawers and gold-trimmed mirrors. Professional grooming tools like shears, combs, and a straight razor are neatly arranged on a tray. The scene is illuminated by soft, warm amber lighting reflecting off polished brass accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4wIBqfh4OnWHQuy3eCCiFY-NqHZXTN9XQ69fS_wH9zHvetXYVzZxWsoBcCOUiJLrmofxgsJdyEcn5cIAOa8s8WKmJpBWS7x5uXsef_wzFFPiaaQ_xv7IDrnas2jOPRn4BI7Ap1GV2cdIoHX6p696jqZVHHaxwtGxLHvkLtb1LPZIr8uJimK6MljjezpkqhgTGfuAMRa-qd-mnz-iNemvvI10bFUgIeLHDDuIUG7gHwqb3wm5RoldF"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-grow">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-headline-md text-on-surface-variant">Gentleman's Cut</h3>
+<div class="flex gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant/70 mt-1">Barber: Marcus Reed</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant/50 mt-1">Sep 15, 2023 • 4:00 PM</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-end gap-4 mt-4 pt-4 border-t border-outline-variant/10">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md text-label-md hover:bg-primary-container transition-all active:scale-95">
+                        Book Again
+                    </button>
+</div>
+</div>
+<!-- Past Card 2 -->
+<div class="border border-[#2A2A2A] rounded-xl p-4 bg-surface-container-low/20 backdrop-blur-sm opacity-90">
+<div class="flex gap-4">
+<div class="w-20 h-20 md:w-28 md:h-28 flex-shrink-0 rounded-lg overflow-hidden border border-outline-variant grayscale">
+<img class="w-full h-full object-cover" data-alt="A luxurious leather Chesterfield sofa in a deep cognac color, positioned in front of a modern electric fireplace. The setting is a lobby of a high-end barbershop. Brick walls and dark wood accents create a cozy, exclusive lounge feel. Warm light spills from an out-of-frame pendant lamp." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhJK4C4xQR1yLLvLYxV93LFkgr0tlKQzVgqMO-casIu9W11nV0In1syULSbxgw9tQWgCh6pU20VCY5enx25xiNhtTD9soDF-s_D-1IYIwV8foEgRtBIXeXpdeIyPkMLWLDkpXmFgnlCGoBMk9uaIKJxQzT6yK6HnKOHnuNwnSZ_Khfm6e8gM0WlX50NAe9hdnuY3VJtieA8KXI0ZHs5qSi-ZbyNID8HRuFk4btYqv-AtcfB9nM-M-u"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-grow">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-headline-md text-on-surface-variant">Signature Styling</h3>
+<div class="flex gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant/70 mt-1">Barber: Elias Thorne</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant/50 mt-1">Aug 30, 2023 • 2:30 PM</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-end gap-4 mt-4 pt-4 border-t border-outline-variant/10">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md text-label-md hover:bg-primary-container transition-all active:scale-95">
+                        Book Again
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center py-3 bg-surface-container-low border-t border-outline-variant dark:border-outline-variant">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-60 hover:text-primary-fixed-dim transition-colors active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary hover:text-primary-fixed-dim transition-colors active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+<span class="font-label-sm text-label-sm mt-1">Appointments</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-60 hover:text-primary-fixed-dim transition-colors active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">content_cut</span>
+<span class="font-label-sm text-label-sm mt-1">Barbers</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-60 hover:text-primary-fixed-dim transition-colors active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+<script>
+        function toggleView(view) {
+            const upcomingView = document.getElementById('view-upcoming');
+            const pastView = document.getElementById('view-past');
+            const btnUpcoming = document.getElementById('btn-upcoming');
+            const btnPast = document.getElementById('btn-past');
+
+            if (view === 'upcoming') {
+                upcomingView.classList.remove('hidden');
+                pastView.classList.add('hidden');
+                btnUpcoming.classList.add('tab-active', 'text-primary');
+                btnUpcoming.classList.remove('text-on-surface-variant');
+                btnPast.classList.remove('tab-active', 'text-primary');
+                btnPast.classList.add('text-on-surface-variant');
+            } else {
+                upcomingView.classList.add('hidden');
+                pastView.classList.remove('hidden');
+                btnPast.classList.add('tab-active', 'text-primary');
+                btnPast.classList.remove('text-on-surface-variant');
+                btnUpcoming.classList.remove('tab-active', 'text-primary');
+                btnUpcoming.classList.add('text-on-surface-variant');
+            }
+        }
+    </script>
+</body></html>

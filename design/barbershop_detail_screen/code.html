@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trimly | The Vintage Gent</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#131313",
+                        "on-tertiary": "#082b72",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed-variant": "#27438a",
+                        "on-secondary-container": "#b6b5b4",
+                        "error-container": "#93000a",
+                        "primary-fixed": "#ffe088",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "primary": "#f2ca50",
+                        "outline": "#99907c",
+                        "surface-tint": "#e9c349",
+                        "inverse-primary": "#735c00",
+                        "surface-variant": "#353534",
+                        "surface-container-highest": "#353534",
+                        "on-error": "#690005",
+                        "on-background": "#e5e2e1",
+                        "on-primary": "#3c2f00",
+                        "inverse-on-surface": "#313030",
+                        "on-primary-container": "#554300",
+                        "surface-container": "#201f1f",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-bright": "#393939",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary-fixed": "#00174b",
+                        "on-primary-fixed": "#241a00",
+                        "surface-container-high": "#2a2a2a",
+                        "tertiary-fixed-dim": "#b4c5ff",
+                        "tertiary-fixed": "#dbe1ff",
+                        "tertiary": "#bfcdff",
+                        "background": "#131313",
+                        "outline-variant": "#4d4635",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-tertiary-container": "#254188",
+                        "secondary-container": "#474746",
+                        "on-secondary-fixed-variant": "#474746",
+                        "secondary": "#c8c6c5",
+                        "on-surface-variant": "#d0c5af",
+                        "primary-container": "#d4af37",
+                        "surface": "#131313",
+                        "secondary-fixed": "#e4e2e1",
+                        "on-error-container": "#ffdad6",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary": "#303030",
+                        "tertiary-container": "#97b0ff",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary-fixed-dim": "#e9c349",
+                        "secondary-fixed-dim": "#c8c6c5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "container-max": "1200px",
+                        "margin-mobile": "20px",
+                        "stack-sm": "8px",
+                        "section-gap": "64px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            background: rgba(32, 31, 31, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background selection:bg-primary selection:text-on-primary">
+<main class="max-w-container-max mx-auto relative pb-32">
+<!-- Hero Section -->
+<section class="relative h-[45vh] md:h-[55vh] overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAhnUanjbQMryM8vAdDX-xh-c0j1DynV6QQniIe6DJ_Ye2JzK79U13mD0SnD6C2lPOZoXnizQFijIX07k6-FoD4MH_cuHPmWYkultp33opYjXL9FSBHIwPfuBf6zEO3mpobSLpoOsuC0EhqOGOXLS7FMu0UxOMDqtZXy43kyZ_U2TUeSMRTXS_0gSDHI5dmDiCIxKgkZ1vQ9f4Qsgbr0qxYGZbl3sc44yjB2UnPJg9Mrq9tWQ9NYDQV');">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/40"></div>
+<!-- Top Controls -->
+<div class="absolute top-0 left-0 w-full flex justify-between items-center p-margin-mobile md:p-margin-desktop z-10">
+<button class="w-10 h-10 flex items-center justify-center rounded-full glass-effect text-on-surface border border-outline-variant hover:border-primary transition-all active:scale-90">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full glass-effect text-on-surface border border-outline-variant hover:border-primary transition-all active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+</section>
+<!-- Information Section -->
+<section class="px-margin-mobile md:px-margin-desktop -mt-12 relative z-20">
+<div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant shadow-2xl">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-1">The Vintage Gent</h1>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-on-surface">4.9</span>
+<span class="font-label-sm text-label-sm opacity-60">(128 reviews)</span>
+</div>
+</div>
+<div class="px-3 py-1 bg-primary/10 border border-primary/20 rounded-full">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-bold">Open Now</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant mb-6">
+<span class="material-symbols-outlined text-lg">location_on</span>
+<p class="font-body-md text-body-md">123 Grooming St, Downtown</p>
+</div>
+<!-- Tab Bar -->
+<div class="flex items-center border-b border-outline-variant gap-8 overflow-x-auto no-scrollbar">
+<button class="pb-3 border-b-2 border-primary text-primary font-label-md text-label-md whitespace-nowrap transition-all" id="tab-services" onclick="switchTab('services')">
+                        Services
+                    </button>
+<button class="pb-3 border-b-2 border-transparent text-on-surface-variant font-label-md text-label-md whitespace-nowrap hover:text-on-surface transition-all" id="tab-gallery" onclick="switchTab('gallery')">
+                        Gallery
+                    </button>
+<button class="pb-3 border-b-2 border-transparent text-on-surface-variant font-label-md text-label-md whitespace-nowrap hover:text-on-surface transition-all" id="tab-reviews" onclick="switchTab('reviews')">
+                        Reviews
+                    </button>
+</div>
+</div>
+</section>
+<!-- Services List -->
+<section class="mt-8 px-margin-mobile md:px-margin-desktop space-y-4" id="services-content">
+<!-- Classic Cut -->
+<div class="group bg-surface-container border border-outline-variant p-5 rounded-xl flex justify-between items-center hover:border-primary transition-all duration-300">
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Classic Cut</h3>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="flex items-center gap-1 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">schedule</span> 45 min
+                        </span>
+<span class="text-primary font-headline-md text-headline-md">$40</span>
+</div>
+</div>
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all active:scale-90" onclick="toggleService(this, 40)">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<!-- Beard Trim -->
+<div class="group bg-surface-container border border-outline-variant p-5 rounded-xl flex justify-between items-center hover:border-primary transition-all duration-300">
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Beard Trim</h3>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="flex items-center gap-1 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">schedule</span> 30 min
+                        </span>
+<span class="text-primary font-headline-md text-headline-md">$25</span>
+</div>
+</div>
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all active:scale-90" onclick="toggleService(this, 25)">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<!-- Hot Towel Shave -->
+<div class="group bg-surface-container border border-outline-variant p-5 rounded-xl flex justify-between items-center hover:border-primary transition-all duration-300">
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Hot Towel Shave</h3>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="flex items-center gap-1 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">schedule</span> 40 min
+                        </span>
+<span class="text-primary font-headline-md text-headline-md">$35</span>
+</div>
+</div>
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all active:scale-90" onclick="toggleService(this, 35)">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</section>
+<!-- Placeholder Sections for Tabs -->
+<section class="hidden mt-8 px-margin-mobile md:px-margin-desktop" id="gallery-content">
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<div class="aspect-square bg-surface-variant rounded-xl border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A high-contrast editorial photography of a vintage barber chair in a dark-mode barbershop with mahogany walls, warm yellow overhead lighting, and rich leather textures, following the Trimly brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEuEOy3TjbDqBHIPrQhYKia0qk2KpW-xxjc-_1q_XGOVkcd4pmSHMgjfpurZRMUS1O2DtseP_kymgS3K522IOkorvjg3udaQFEI_UA0sKYvLeX3F1eqxDLeDPXe3Thpl-ULd93r1bhIEQQu5LOcQyuVz7aJGoSMqBDcTN2JScFgldApjtZFuEpo6mGpQtFsXy7GuvwvMzJWy9stMq2pZmkwut-FaBhXPnjisX46SAPvCngrgqLgiT5"/>
+</div>
+<div class="aspect-square bg-surface-variant rounded-xl border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up of professional barber tools, scissors, and a straight razor on a dark wooden workstation with gold accents and soft dramatic lighting. The atmosphere is quiet and luxurious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB4_IesUXzPph5RmX-5rXIjnsf6j2cz0BUnAt2AWYmjgBF_TuMB9ffbOsthfgn-zgcFSv3yo6jxYZUSBsqbBsLR8BR-tzAXQaJBx2bs2R1-nysva8GSr_MVwThMByYqcYkfzzrdL1oKe19OPufwakHRUdcUNfv3XiTGuZvHQA7hnPOFHBmrKUzP93UzcMJaKTqYjSZilQSdPuyBMh7vWJki5oAA_jROLXwn6p-Eqxr7uGnDyxuc8Dq"/>
+</div>
+<div class="aspect-square bg-surface-variant rounded-xl border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A stylish modern man receiving a haircut in a premium grooming lounge. The setting features exposed brick, warm spotlights, and a sophisticated charcoal color palette with gold highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEk-ApyAFSt_-AhQKVA0zenD45vIcCpOP6Dn_wSFrOTgWg6F-STAz2kZTsQ9U8LBSrbmf3zz2pcEOKhR6pgm7XYVE0_U8nSH96Tncw-4ZDeMkWS-IF1hU4KfdpFzvJhyVOi2N_gDe_55aHOBb8TQVCaDnk_Ip54mE6Sxir1uCkUOGHCiGOYOtcT2t6XvyIyG6gvYLy5PY4wwNPSIRlR_X61-yzGSQnF4JLa0skTJ3zdPbv7-211o3q"/>
+</div>
+</div>
+</section>
+<section class="hidden mt-8 px-margin-mobile md:px-margin-desktop space-y-6" id="reviews-content">
+<div class="bg-surface-container border border-outline-variant p-4 rounded-xl">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">JD</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">John Doe</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">2 days ago</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic">"Best haircut I've had in years. The atmosphere is unmatched and the attention to detail is incredible."</p>
+</div>
+</section>
+</main>
+<!-- Sticky Bottom Bar -->
+<footer class="fixed bottom-0 left-0 w-full bg-surface-container-low border-t border-outline-variant p-margin-mobile md:px-margin-desktop z-50">
+<div class="max-w-container-max mx-auto flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-tighter">Selected Services</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold" id="total-price">Total: $0</span>
+</div>
+<button class="bg-primary text-on-primary px-10 py-4 rounded-lg font-headline-md text-headline-md hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary/20">
+                Book Now
+            </button>
+</div>
+</footer>
+<script>
+        let totalPrice = 0;
+        let selectedCount = 0;
+
+        function switchTab(tab) {
+            const tabs = ['services', 'gallery', 'reviews'];
+            tabs.forEach(t => {
+                const content = document.getElementById(`${t}-content`);
+                const btn = document.getElementById(`tab-${t}`);
+                if (t === tab) {
+                    content.classList.remove('hidden');
+                    btn.classList.add('border-primary', 'text-primary');
+                    btn.classList.remove('border-transparent', 'text-on-surface-variant');
+                } else {
+                    content.classList.add('hidden');
+                    btn.classList.remove('border-primary', 'text-primary');
+                    btn.classList.add('border-transparent', 'text-on-surface-variant');
+                }
+            });
+        }
+
+        function toggleService(btn, price) {
+            const icon = btn.querySelector('.material-symbols-outlined');
+            const parent = btn.closest('.group');
+            
+            if (icon.innerText === 'add') {
+                icon.innerText = 'check';
+                btn.classList.add('bg-primary', 'text-on-primary');
+                parent.classList.add('border-primary');
+                totalPrice += price;
+                selectedCount++;
+            } else {
+                icon.innerText = 'add';
+                btn.classList.remove('bg-primary', 'text-on-primary');
+                parent.classList.remove('border-primary');
+                totalPrice -= price;
+                selectedCount--;
+            }
+            
+            document.getElementById('total-price').innerText = `Total: $${totalPrice}`;
+            
+            // Animation effect for price
+            const totalDisplay = document.getElementById('total-price');
+            totalDisplay.classList.add('scale-110');
+            setTimeout(() => totalDisplay.classList.remove('scale-110'), 200);
+        }
+
+        // Simple scroll reveal for cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('#services-content > div').forEach(card => {
+            card.classList.add('transition-all', 'duration-500', 'opacity-0', 'translate-y-4');
+            observer.observe(card);
+        });
+    </script>
+</body></html>

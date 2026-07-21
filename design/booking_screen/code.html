@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TRIMLY | Book Your Appointment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #131313;
+            color: #e5e2e1;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .gold-glow {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#e9c349",
+                      "inverse-surface": "#e5e2e1",
+                      "surface-bright": "#393939",
+                      "on-primary-container": "#554300",
+                      "inverse-on-surface": "#313030",
+                      "outline": "#99907c",
+                      "error-container": "#93000a",
+                      "surface-container-high": "#2a2a2a",
+                      "on-background": "#e5e2e1",
+                      "on-primary-fixed-variant": "#574500",
+                      "primary-fixed": "#ffe088",
+                      "on-secondary-fixed-variant": "#474746",
+                      "primary-container": "#d4af37",
+                      "secondary-container": "#474746",
+                      "tertiary-fixed-dim": "#b4c5ff",
+                      "tertiary-container": "#97b0ff",
+                      "surface-container-lowest": "#0e0e0e",
+                      "secondary-fixed": "#e4e2e1",
+                      "on-tertiary": "#082b72",
+                      "on-primary": "#3c2f00",
+                      "tertiary-fixed": "#dbe1ff",
+                      "on-tertiary-fixed": "#00174b",
+                      "on-secondary-container": "#b6b5b4",
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "on-tertiary-container": "#254188",
+                      "error": "#ffb4ab",
+                      "surface-container-low": "#1c1b1b",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "primary": "#f2ca50",
+                      "surface-variant": "#353534",
+                      "secondary": "#c8c6c5",
+                      "on-error": "#690005",
+                      "surface-container-highest": "#353534",
+                      "primary-fixed-dim": "#e9c349",
+                      "on-primary-fixed": "#241a00",
+                      "surface": "#131313",
+                      "on-secondary": "#303030",
+                      "inverse-primary": "#735c00",
+                      "outline-variant": "#4d4635",
+                      "on-error-container": "#ffdad6",
+                      "surface-dim": "#131313",
+                      "on-surface": "#e5e2e1",
+                      "surface-container": "#201f1f",
+                      "on-tertiary-fixed-variant": "#27438a",
+                      "on-surface-variant": "#d0c5af",
+                      "background": "#131313",
+                      "tertiary": "#bfcdff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "section-gap": "64px",
+                      "container-max": "1200px",
+                      "stack-md": "16px",
+                      "margin-desktop": "40px",
+                      "stack-lg": "32px",
+                      "stack-sm": "8px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Manrope"],
+                      "label-sm": ["Manrope"],
+                      "body-lg": ["Manrope"],
+                      "headline-lg-mobile": ["Manrope"],
+                      "display-lg": ["Manrope"],
+                      "body-md": ["Manrope"],
+                      "headline-md": ["Manrope"],
+                      "label-md": ["Manrope"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface antialiased">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background border-b border-outline-variant w-full">
+<div class="flex items-center justify-between px-margin-mobile md:px-margin-desktop py-4 w-full max-w-container-max mx-auto">
+<button class="text-primary cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-display-lg text-headline-md md:text-display-lg tracking-tighter text-primary">TRIMLY</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant cursor-pointer active:scale-95 transition-transform">
+<img class="w-full h-full object-cover" data-alt="A professional close-up portrait of a high-end barber with styled hair and a groomed beard, wearing a minimalist black apron. The lighting is dramatic and moody with warm gold highlights, reflecting a premium dark-mode aesthetic. The background is a blurred upscale grooming lounge with charcoal walls and metallic gold accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkk7i-cwgCEuo879pfiwsiMiNGRgJ5-S8znIO5RMthoHP4ozrbwACQreiNXFofvJlcdIsM7c0QD0IGUL44ASTRgHq1XYqACMZkLFAdqJE0tvJ-MHOv2gWnukYojnMzhRXct7CicsZk8NRWS7rbZC_Uio_icq1GYyKBYys4X3N_atSeKCsaOWqrjtWpxOIA8t1n0pJfHGW-2km_ifANPPUtupcIMxGW3Y5Lk5N0Y4tT1Ms4ao6ttGBX"/>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-32 pt-8">
+<!-- Step Indicator -->
+<div class="flex items-center justify-center space-x-4 mb-stack-lg">
+<div class="flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="font-label-md text-label-md text-outline">Service</span>
+</div>
+<div class="w-8 h-[1px] bg-outline-variant"></div>
+<div class="flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="font-label-md text-label-md text-outline">Barber</span>
+</div>
+<div class="w-8 h-[1px] bg-outline-variant"></div>
+<div class="flex items-center space-x-2">
+<span class="w-3 h-3 rounded-full bg-primary gold-glow"></span>
+<span class="font-label-md text-label-md text-primary font-bold">Time</span>
+</div>
+</div>
+<!-- Section 1: Select Barber -->
+<section class="mb-stack-lg">
+<h2 class="font-headline-md text-headline-md text-on-background mb-stack-md">Select Barber</h2>
+<div class="flex overflow-x-auto hide-scrollbar gap-gutter py-2">
+<!-- Barber 1 (Selected) -->
+<div class="flex flex-col items-center flex-shrink-0 cursor-pointer active:scale-95 transition-transform">
+<div class="w-20 h-20 md:w-24 md:h-24 rounded-full p-1 border-2 border-primary-container gold-glow">
+<img class="w-full h-full rounded-full object-cover" data-alt="A portrait of an expert barber with short dark hair and a precise fade, looking confidently at the camera. The setting is a luxury dark-themed barber shop with sophisticated warm lighting and black-on-black textures. High-contrast editorial style photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdw2uJ09iWoZI86y-Eb0Wt-a7EBbSxmPU_Nx6Or7gXDQFpoP2-AGAthat9jO3yifqxZ3r4mQEw7PhmlthbuqIouQdpMGacIEIbJ17HTRgtJnM0CdN_VEzhqNsBMwKBGqOFuW96oN1xrbJPHlHfcFojoEZSEZz9ME0HhjckZ1lCYNCACy7tC0KQMvHsyHUWHMgMuSok2Il1lL2Dh3WHVuaGWPVfp79xDsXFOW1ecSsHFd9-6t3nnv6A"/>
+</div>
+<span class="mt-stack-sm font-label-md text-label-md text-primary">Marcus V.</span>
+</div>
+<!-- Barber 2 -->
+<div class="flex flex-col items-center flex-shrink-0 cursor-pointer opacity-60 hover:opacity-100 transition-opacity">
+<div class="w-20 h-20 md:w-24 md:h-24 rounded-full border border-outline-variant p-0.5">
+<img class="w-full h-full rounded-full object-cover grayscale" data-alt="A focused female master barber with an edgy hairstyle and minimalist tattoos on her forearm, working in a boutique grooming studio. The lighting is soft and golden, illuminating her face against a charcoal-grey background. Luxurious, calm, and authoritative atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChogiqBVX1JPGcNq4b6ni1jVEtMD0MkKw30dph3pxbNfAy8FCXtUQ8N8G_rN2NXjUD1hoZrDE3Ni-jEBcajuZB7EEBnUpve2hiPp3UrS24uFFOOiwksPXFe3mAl7MkLoqL4PgYcjggxcYCMRI9xQ2QNifRmKr_pUTZkLXTOOY6NFzPzEIIIZV1GCocUjw1_8BdTJ08DDvT6grYTh8R_U-H-0x0lp8NWF9_eeOlfVHL0oxuw401jtbh"/>
+</div>
+<span class="mt-stack-sm font-label-md text-label-md text-on-surface-variant">Elena R.</span>
+</div>
+<!-- Barber 3 -->
+<div class="flex flex-col items-center flex-shrink-0 cursor-pointer opacity-60 hover:opacity-100 transition-opacity">
+<div class="w-20 h-20 md:w-24 md:h-24 rounded-full border border-outline-variant p-0.5">
+<img class="w-full h-full rounded-full object-cover grayscale" data-alt="A distinguished senior barber with graying hair and a sharp tailored vest, standing in an elegant barbershop with dark wood and gold accents. The shot is a clean, modern profile portrait with a focus on precision and craftsmanship. Premium dark-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0U1uGzUzYP_8VYzAdIO4MIF_yE-o63zqg0KmvBLGDXvLPz-bz50NrbWWb1TfRntzg2XNP0TmQ1pzlbzAaf6XDQ2FQ-9I9E-89c_IJb-z76-6TK23sXRT1tS3IYtm1UiJWXH9Feg7SDUCcY1f41We96wbfBr_z9vmsKRgmYUKoiTBrUyFb7iCjBDPle3Tp-veRPV9iDRFrk4-TR7ac6EoOT6MY18YyVLZr5gMTzToE_AmIo9c5cCdm"/>
+</div>
+<span class="mt-stack-sm font-label-md text-label-md text-on-surface-variant">Julian S.</span>
+</div>
+<!-- Barber 4 -->
+<div class="flex flex-col items-center flex-shrink-0 cursor-pointer opacity-60 hover:opacity-100 transition-opacity">
+<div class="w-20 h-20 md:w-24 md:h-24 rounded-full border border-outline-variant p-0.5">
+<img class="w-full h-full rounded-full object-cover grayscale" data-alt="A stylish young barber with a creative haircut and a confident gaze, set against a dark textured wall in a high-end salon. The lighting is theatrical, casting sharp shadows and warm golden glows on the metallic tools in the background. Minimalist and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0xnzDfvphJIRDcUzQFxvNXGkjc-GVEnn-PRAjNBO9JSZhHxhJ_15eCGrtO_JnzP61Kv4s8CYj3FjMAJZU0ibOycv5_YKQX6fjEKhdC3amZ3TDDvrjVl70_2NPWPmyaHhzlxkNzgNZm-sjJjaHmxRx5DMcORsyv-IrJGUTY6ehyiUpvrTaDNHISwxtQipyBD-RkVX8mLQl1rpkr8pFrKcgl_NToc5dK-4iMaDyu94a1-lx8h1fqLLW"/>
+</div>
+<span class="mt-stack-sm font-label-md text-label-md text-on-surface-variant">Leo K.</span>
+</div>
+<!-- Barber 5 -->
+<div class="flex flex-col items-center flex-shrink-0 cursor-pointer opacity-60 hover:opacity-100 transition-opacity">
+<div class="w-20 h-20 md:w-24 md:h-24 rounded-full border border-outline-variant p-0.5">
+<img class="w-full h-full rounded-full object-cover grayscale" data-alt="A professional barber with a meticulously trimmed beard and modern styling, posing in a high-fashion grooming lounge. The palette is dominated by deep blacks, charcoal, and subtle gold accents. The atmosphere is quiet, exclusive, and precise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6Ynm2ZcLXboW2xgpZ1yAOmg9Yxq7zcvqpHp2-alZ_36svnbkwvmyV0Oe3AjGXjdhWVmvT_5_0-DbC5vuIZV0j_aZFdU9jWDdUubinfMz2S65x1nctgODQmNrLO2NVb4p0Hs4ojhVCyuCMy169KFbvYEMq68i6oVgwib9e8INm4dpjbU87mhm2A7NjAKCGc9JzkOPmjCUOVmcUyjXlccqqc4dmklp1AQHNMl1FvfYTO7J2E78XzeVc"/>
+</div>
+<span class="mt-stack-sm font-label-md text-label-md text-on-surface-variant">Silas M.</span>
+</div>
+</div>
+</section>
+<!-- Section 2: Select Date -->
+<section class="mb-stack-lg">
+<div class="flex justify-between items-center mb-stack-md">
+<h2 class="font-headline-md text-headline-md text-on-background">Select Date</h2>
+<span class="font-label-md text-label-md text-primary cursor-pointer hover:opacity-80 transition-opacity">October 2023</span>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar gap-stack-md py-1">
+<!-- Date Chips -->
+<div class="flex flex-col items-center justify-center min-w-[70px] h-20 rounded-xl border border-outline-variant bg-surface-container-low cursor-pointer hover:border-primary transition-all">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mon</span>
+<span class="font-headline-md text-headline-md text-on-surface">12</span>
+</div>
+<div class="flex flex-col items-center justify-center min-w-[70px] h-20 rounded-xl bg-primary text-on-primary-fixed shadow-lg gold-glow cursor-pointer scale-105">
+<span class="font-label-sm text-label-sm">Tue</span>
+<span class="font-headline-md text-headline-md font-bold">13</span>
+</div>
+<div class="flex flex-col items-center justify-center min-w-[70px] h-20 rounded-xl border border-outline-variant bg-surface-container-low cursor-pointer hover:border-primary transition-all">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Wed</span>
+<span class="font-headline-md text-headline-md text-on-surface">14</span>
+</div>
+<div class="flex flex-col items-center justify-center min-w-[70px] h-20 rounded-xl border border-outline-variant bg-surface-container-low cursor-pointer hover:border-primary transition-all">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Thu</span>
+<span class="font-headline-md text-headline-md text-on-surface">15</span>
+</div>
+<div class="flex flex-col items-center justify-center min-w-[70px] h-20 rounded-xl border border-outline-variant bg-surface-container-low cursor-pointer hover:border-primary transition-all">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Fri</span>
+<span class="font-headline-md text-headline-md text-on-surface">16</span>
+</div>
+<div class="flex flex-col items-center justify-center min-w-[70px] h-20 rounded-xl border border-outline-variant bg-surface-container-low cursor-pointer hover:border-primary transition-all">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sat</span>
+<span class="font-headline-md text-headline-md text-on-surface">17</span>
+</div>
+</div>
+</section>
+<!-- Section 3: Available Times -->
+<section class="mb-stack-lg">
+<h2 class="font-headline-md text-headline-md text-on-background mb-stack-md">Available Times</h2>
+<div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-stack-md">
+<!-- Time Slots -->
+<div class="py-3 px-2 rounded-lg border border-outline-variant bg-surface-container-low flex justify-center items-center cursor-pointer hover:border-primary transition-all active:scale-95">
+<span class="font-label-md text-label-md text-on-surface">10:00 AM</span>
+</div>
+<div class="py-3 px-2 rounded-lg border border-outline-variant bg-surface-container-low flex justify-center items-center cursor-pointer hover:border-primary transition-all active:scale-95">
+<span class="font-label-md text-label-md text-on-surface">10:30 AM</span>
+</div>
+<div class="py-3 px-2 rounded-lg border border-outline-variant opacity-30 bg-surface-container-lowest flex justify-center items-center cursor-not-allowed">
+<span class="font-label-md text-label-md text-on-surface-variant">11:00 AM</span>
+</div>
+<div class="py-3 px-2 rounded-lg border border-outline-variant bg-surface-container-low flex justify-center items-center cursor-pointer hover:border-primary transition-all active:scale-95">
+<span class="font-label-md text-label-md text-on-surface">11:30 AM</span>
+</div>
+<div class="py-3 px-2 rounded-lg border border-outline-variant bg-surface-container-low flex justify-center items-center cursor-pointer hover:border-primary transition-all active:scale-95">
+<span class="font-label-md text-label-md text-on-surface">12:00 PM</span>
+</div>
+<div class="py-3 px-2 rounded-lg border border-outline-variant opacity-30 bg-surface-container-lowest flex justify-center items-center cursor-not-allowed">
+<span class="font-label-md text-label-md text-on-surface-variant">12:30 PM</span>
+</div>
+<div class="py-3 px-2 rounded-lg border border-outline-variant bg-surface-container-low flex justify-center items-center cursor-pointer hover:border-primary transition-all active:scale-95">
+<span class="font-label-md text-label-md text-on-surface">01:00 PM</span>
+</div>
+<div class="py-3 px-2 rounded-lg border border-outline-variant bg-surface-container-low flex justify-center items-center cursor-pointer hover:border-primary transition-all active:scale-95">
+<span class="font-label-md text-label-md text-on-surface">01:30 PM</span>
+</div>
+<div class="py-3 px-2 rounded-lg border border-outline-variant bg-surface-container-low flex justify-center items-center cursor-pointer hover:border-primary transition-all active:scale-95">
+<span class="font-label-md text-label-md text-on-surface">02:00 PM</span>
+</div>
+<div class="py-3 px-2 rounded-lg bg-primary flex justify-center items-center cursor-pointer shadow-lg gold-glow active:scale-95">
+<span class="font-label-md text-label-md text-on-primary-fixed font-bold">02:30 PM</span>
+</div>
+<div class="py-3 px-2 rounded-lg border border-outline-variant bg-surface-container-low flex justify-center items-center cursor-pointer hover:border-primary transition-all active:scale-95">
+<span class="font-label-md text-label-md text-on-surface">03:00 PM</span>
+</div>
+<div class="py-3 px-2 rounded-lg border border-outline-variant bg-surface-container-low flex justify-center items-center cursor-pointer hover:border-primary transition-all active:scale-95">
+<span class="font-label-md text-label-md text-on-surface">03:30 PM</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Footer -->
+<footer class="fixed bottom-0 left-0 right-0 z-50 bg-surface-container-low border-t border-outline-variant px-margin-mobile md:px-margin-desktop py-6">
+<div class="max-w-container-max mx-auto flex items-center justify-between gap-gutter">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Summary</span>
+<span class="font-headline-md text-headline-md text-on-background">Classic Cut <span class="text-primary mx-1">•</span> $35</span>
+</div>
+<button class="bg-primary hover:bg-primary-fixed-dim text-on-primary-fixed font-bold px-10 py-4 rounded-xl transition-all active:scale-95 shadow-lg flex items-center gap-2">
+<span class="font-label-md text-label-md">CONTINUE</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</footer>
+<!-- Atmosphere/Micro-interaction Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const timeSlots = document.querySelectorAll('.grid > div:not(.opacity-30)');
+            timeSlots.forEach(slot => {
+                slot.addEventListener('click', function() {
+                    timeSlots.forEach(s => {
+                        s.classList.remove('bg-primary', 'gold-glow', 'shadow-lg');
+                        s.classList.add('bg-surface-container-low', 'border-outline-variant');
+                        const text = s.querySelector('span');
+                        if(text) {
+                            text.classList.remove('text-on-primary-fixed', 'font-bold');
+                            text.classList.add('text-on-surface');
+                        }
+                    });
+                    
+                    this.classList.remove('bg-surface-container-low', 'border-outline-variant');
+                    this.classList.add('bg-primary', 'gold-glow', 'shadow-lg');
+                    const selectedText = this.querySelector('span');
+                    if(selectedText) {
+                        selectedText.classList.remove('text-on-surface');
+                        selectedText.classList.add('text-on-primary-fixed', 'font-bold');
+                    }
+                });
+            });
+
+            const dateChips = document.querySelectorAll('.flex.overflow-x-auto.gap-stack-md > div');
+            dateChips.forEach(chip => {
+                chip.addEventListener('click', function() {
+                    dateChips.forEach(c => {
+                        c.classList.remove('bg-primary', 'text-on-primary-fixed', 'shadow-lg', 'gold-glow', 'scale-105');
+                        c.classList.add('border-outline-variant', 'bg-surface-container-low');
+                        c.querySelector('span:first-child').classList.add('text-on-surface-variant');
+                        c.querySelector('span:last-child').classList.remove('font-bold');
+                        c.querySelector('span:last-child').classList.add('text-on-surface');
+                    });
+
+                    this.classList.remove('border-outline-variant', 'bg-surface-container-low');
+                    this.classList.add('bg-primary', 'text-on-primary-fixed', 'shadow-lg', 'gold-glow', 'scale-105');
+                    this.querySelector('span:first-child').classList.remove('text-on-surface-variant');
+                    this.querySelector('span:last-child').classList.add('font-bold');
+                    this.querySelector('span:last-child').classList.remove('text-on-surface');
+                });
+            });
+
+            const barbers = document.querySelectorAll('.flex.overflow-x-auto.gap-gutter > div');
+            barbers.forEach(barber => {
+                barber.addEventListener('click', function() {
+                    barbers.forEach(b => {
+                        b.classList.add('opacity-60');
+                        b.querySelector('div').classList.remove('border-primary-container', 'gold-glow', 'border-2');
+                        b.querySelector('div').classList.add('border-outline-variant', 'border');
+                        b.querySelector('span').classList.remove('text-primary');
+                        b.querySelector('span').classList.add('text-on-surface-variant');
+                        b.querySelector('img').classList.add('grayscale');
+                    });
+
+                    this.classList.remove('opacity-60');
+                    this.querySelector('div').classList.remove('border-outline-variant', 'border');
+                    this.querySelector('div').classList.add('border-primary-container', 'gold-glow', 'border-2');
+                    this.querySelector('span').classList.remove('text-on-surface-variant');
+                    this.querySelector('span').classList.add('text-primary');
+                    this.querySelector('img').classList.remove('grayscale');
+                });
+            });
+        });
+    </script>
+</body></html>

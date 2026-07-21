@@ -1,4 +1,4 @@
-package com.example.trimly
+package com.mohammedashi.trimly
 
 import io.flutter.embedding.android.FlutterActivity
 
