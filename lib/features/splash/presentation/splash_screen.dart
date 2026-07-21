@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/constants/app_assets.dart';
 import '../../../core/router/app_router.dart';
 import '../../../core/theme/app_colors.dart';
-import '../../../core/widgets/trimly_logo.dart';
 import '../../auth/data/mock_auth_repository.dart';
 
 /// Brand splash: the monogram fades in, then routes based on session state.
@@ -68,7 +68,27 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
               opacity: _fade,
               child: ScaleTransition(
                 scale: _scale,
-                child: const TrimlyLogo(size: 104, glow: true),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    // Official brand mark, gold on charcoal — the asset's
+                    // field blends seamlessly into the scaffold.
+                    Image.asset(AppAssets.logo, width: 240),
+                    // Soft ambient halo over the mark, per the design.
+                    IgnorePointer(
+                      child: Container(
+                        width: 420,
+                        height: 420,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          gradient: RadialGradient(
+                            colors: [AppColors.goldGlow, Colors.transparent],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
