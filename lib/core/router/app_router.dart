@@ -7,14 +7,16 @@ import '../../features/auth/presentation/signup_screen.dart';
 import '../../features/bookings/domain/entities/booking.dart';
 import '../../features/bookings/presentation/booking_confirmation_screen.dart';
 import '../../features/bookings/presentation/booking_screen.dart';
+import '../../features/bookings/presentation/my_bookings_screen.dart';
 import '../../features/favorites/presentation/favorites_screen.dart';
 import '../../features/onboarding/presentation/onboarding_screen.dart';
+import '../../features/profile/presentation/edit_profile_screen.dart';
+import '../../features/profile/presentation/profile_screen.dart';
 import '../../features/shell/presentation/app_shell.dart';
 import '../../features/shops/presentation/all_shops_screen.dart';
 import '../../features/shops/presentation/home_screen.dart';
 import '../../features/shops/presentation/shop_detail_screen.dart';
 import '../../features/splash/presentation/splash_screen.dart';
-import '../theme/app_text_styles.dart';
 
 /// Route paths used across the app.
 abstract final class AppRoutes {
@@ -26,6 +28,7 @@ abstract final class AppRoutes {
   static const String bookings = '/bookings';
   static const String favorites = '/favorites';
   static const String profile = '/profile';
+  static const String editProfile = '/profile/edit';
   static const String allShops = '/shops';
   static const String bookingConfirmation = '/booking-confirmation';
 
@@ -127,19 +130,8 @@ final routerProvider = Provider<GoRouter>((ref) {
             routes: [
               GoRoute(
                 path: AppRoutes.bookings,
-                pageBuilder: (context, state) => fadePage(
-                  // Placeholder until the bookings feature lands in Phase 6.
-                  child: Scaffold(
-                    appBar: AppBar(title: const Text('My Bookings')),
-                    body: Center(
-                      child: Text(
-                        'Your appointments will live here.',
-                        style: AppTextStyles.bodyMd,
-                      ),
-                    ),
-                  ),
-                  state: state,
-                ),
+                pageBuilder: (context, state) =>
+                    fadePage(child: const MyBookingsScreen(), state: state),
               ),
             ],
           ),
@@ -156,19 +148,17 @@ final routerProvider = Provider<GoRouter>((ref) {
             routes: [
               GoRoute(
                 path: AppRoutes.profile,
-                pageBuilder: (context, state) => fadePage(
-                  // Placeholder until the profile feature lands in Phase 6.
-                  child: Scaffold(
-                    appBar: AppBar(title: const Text('Profile')),
-                    body: Center(
-                      child: Text(
-                        'Your profile will live here.',
-                        style: AppTextStyles.bodyMd,
-                      ),
+                pageBuilder: (context, state) =>
+                    fadePage(child: const ProfileScreen(), state: state),
+                routes: [
+                  GoRoute(
+                    path: 'edit',
+                    pageBuilder: (context, state) => fadePage(
+                      child: const EditProfileScreen(),
+                      state: state,
                     ),
                   ),
-                  state: state,
-                ),
+                ],
               ),
             ],
           ),
