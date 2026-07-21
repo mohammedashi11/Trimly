@@ -4,6 +4,9 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/auth/presentation/login_screen.dart';
 import '../../features/auth/presentation/signup_screen.dart';
+import '../../features/bookings/domain/entities/booking.dart';
+import '../../features/bookings/presentation/booking_confirmation_screen.dart';
+import '../../features/bookings/presentation/booking_screen.dart';
 import '../../features/favorites/presentation/favorites_screen.dart';
 import '../../features/onboarding/presentation/onboarding_screen.dart';
 import '../../features/shell/presentation/app_shell.dart';
@@ -24,6 +27,7 @@ abstract final class AppRoutes {
   static const String favorites = '/favorites';
   static const String profile = '/profile';
   static const String allShops = '/shops';
+  static const String bookingConfirmation = '/booking-confirmation';
 
   /// Shop detail base path; append `/<shopId>`.
   static const String shop = '/shop';
@@ -79,6 +83,13 @@ final routerProvider = Provider<GoRouter>((ref) {
             fadePage(child: const AllShopsScreen(), state: state),
       ),
       GoRoute(
+        path: AppRoutes.bookingConfirmation,
+        pageBuilder: (context, state) => fadePage(
+          child: BookingConfirmationScreen(booking: state.extra! as Booking),
+          state: state,
+        ),
+      ),
+      GoRoute(
         path: '${AppRoutes.shop}/:id',
         pageBuilder: (context, state) => fadePage(
           child: ShopDetailScreen(shopId: state.pathParameters['id']!),
@@ -88,15 +99,11 @@ final routerProvider = Provider<GoRouter>((ref) {
           GoRoute(
             path: 'book',
             pageBuilder: (context, state) => fadePage(
-              // Placeholder until the booking flow lands next phase.
-              child: Scaffold(
-                appBar: AppBar(title: const Text('TRIMLY')),
-                body: Center(
-                  child: Text(
-                    'Booking flow arriving shortly.',
-                    style: AppTextStyles.bodyMd,
-                  ),
-                ),
+              child: BookingScreen(
+                shopId: state.pathParameters['id']!,
+                args: state.extra is BookingFlowArgs
+                    ? state.extra! as BookingFlowArgs
+                    : const BookingFlowArgs(),
               ),
               state: state,
             ),

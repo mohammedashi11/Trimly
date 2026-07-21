@@ -9,6 +9,7 @@ import '../../../core/theme/app_text_styles.dart';
 import '../../../core/widgets/app_card.dart';
 import '../../../core/widgets/primary_button.dart';
 import '../../bookings/domain/entities/booking.dart';
+import '../../bookings/presentation/booking_screen.dart';
 import '../../favorites/presentation/providers/favorites_providers.dart';
 import '../domain/entities/barbershop.dart';
 import '../domain/entities/service.dart';
@@ -431,7 +432,7 @@ class _BookingBar extends ConsumerWidget {
                     ? null
                     : () => context.push(
                           '${AppRoutes.shop}/${shop.id}/book',
-                          extra: selected.toList(),
+                          extra: BookingFlowArgs(services: selected.toList()),
                         ),
               ),
             ],
