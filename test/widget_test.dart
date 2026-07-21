@@ -19,5 +19,9 @@ void main() {
     await tester.pump();
 
     expect(find.byType(TrimlyLogo), findsOneWidget);
+
+    // Let the splash timer fire and the router settle on the next screen.
+    await tester.pump(const Duration(seconds: 2));
+    await tester.pumpAndSettle();
   });
 }
