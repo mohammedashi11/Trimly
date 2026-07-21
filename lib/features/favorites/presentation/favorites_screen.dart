@@ -6,6 +6,8 @@ import '../../../core/constants/app_spacing.dart';
 import '../../../core/router/app_router.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_text_styles.dart';
+import '../../../core/widgets/fade_slide_in.dart';
+import '../../../core/widgets/skeleton.dart';
 import '../../shops/presentation/widgets/shop_card.dart';
 import 'providers/favorites_providers.dart';
 
@@ -20,7 +22,13 @@ class FavoritesScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Favorites')),
       body: favorites.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
+        loading: () => ListView.separated(
+          padding: const EdgeInsets.all(AppSpacing.screenMargin),
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: 2,
+          separatorBuilder: (_, _) => const SizedBox(height: AppSpacing.md),
+          itemBuilder: (_, _) => const ShopCardSkeleton(),
+        ),
         error: (e, _) => const Center(child: Text('Something went wrong.')),
         data: (shops) => shops.isEmpty
             ? const _EmptyFavorites()
@@ -31,9 +39,13 @@ class FavoritesScreen extends ConsumerWidget {
                     const SizedBox(height: AppSpacing.md),
                 itemBuilder: (context, index) {
                   final shop = shops[index];
-                  return ShopCard(
-                    shop: shop,
-                    onTap: () => context.push('${AppRoutes.shop}/${shop.id}'),
+                  return FadeSlideIn(
+                    index: index,
+                    child: ShopCard(
+                      shop: shop,
+                      onTap: () =>
+                          context.push('${AppRoutes.shop}/${shop.id}'),
+                    ),
                   );
                 },
               ),

@@ -6,9 +6,11 @@ import '../../../core/constants/app_spacing.dart';
 import '../../../core/router/app_router.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_text_styles.dart';
+import '../../../core/widgets/fade_slide_in.dart';
 import '../../../core/widgets/initials_avatar.dart';
 import '../../../core/widgets/section_header.dart';
 import '../../../core/widgets/selectable_chip.dart';
+import '../../../core/widgets/skeleton.dart';
 import '../../auth/presentation/providers/auth_providers.dart';
 import '../domain/entities/service.dart';
 import 'providers/shop_providers.dart';
@@ -133,7 +135,17 @@ class HomeScreen extends ConsumerWidget {
             SizedBox(
               height: 258,
               child: topRated.when(
-                loading: () => const _RailLoading(),
+                loading: () => ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  physics: const NeverScrollableScrollPhysics(),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: AppSpacing.screenMargin,
+                  ),
+                  itemCount: 2,
+                  separatorBuilder: (_, _) =>
+                      const SizedBox(width: AppSpacing.md),
+                  itemBuilder: (_, _) => const ShopCardSkeleton(width: 280),
+                ),
                 error: (e, _) => const _LoadFailure(),
                 data: (shops) => shops.isEmpty
                     ? const _NoResults()
@@ -147,11 +159,14 @@ class HomeScreen extends ConsumerWidget {
                             const SizedBox(width: AppSpacing.md),
                         itemBuilder: (context, index) {
                           final shop = shops[index];
-                          return ShopCard(
-                            shop: shop,
-                            width: 280,
-                            onTap: () =>
-                                context.push('${AppRoutes.shop}/${shop.id}'),
+                          return FadeSlideIn(
+                            index: index,
+                            child: ShopCard(
+                              shop: shop,
+                              width: 280,
+                              onTap: () => context
+                                  .push('${AppRoutes.shop}/${shop.id}'),
+                            ),
                           );
                         },
                       ),
@@ -168,9 +183,13 @@ class HomeScreen extends ConsumerWidget {
                   const SectionHeader(title: 'Popular Barbers'),
                   const SizedBox(height: AppSpacing.md),
                   barbers.when(
-                    loading: () => const SizedBox(
-                      height: 180,
-                      child: _RailLoading(),
+                    loading: () => Column(
+                      children: [
+                        for (var i = 0; i < 3; i++) ...[
+                          const TileSkeleton(),
+                          const SizedBox(height: AppSpacing.md),
+                        ],
+                      ],
                     ),
                     error: (e, _) => const SizedBox(
                       height: 120,
@@ -180,14 +199,18 @@ class HomeScreen extends ConsumerWidget {
                         ? const SizedBox(height: 120, child: _NoResults())
                         : Column(
                             children: [
-                              for (final entry in list.take(6)) ...[
-                                BarberTile(
-                                  barber: entry.barber,
-                                  onTap: () => context.push(
-                                    '${AppRoutes.shop}/${entry.shop.id}',
-                                  ),
-                                  onBook: () => context.push(
-                                    '${AppRoutes.shop}/${entry.shop.id}',
+                              for (final (index, entry)
+                                  in list.take(6).indexed) ...[
+                                FadeSlideIn(
+                                  index: index,
+                                  child: BarberTile(
+                                    barber: entry.barber,
+                                    onTap: () => context.push(
+                                      '${AppRoutes.shop}/${entry.shop.id}',
+                                    ),
+                                    onBook: () => context.push(
+                                      '${AppRoutes.shop}/${entry.shop.id}',
+                                    ),
                                   ),
                                 ),
                                 const SizedBox(height: AppSpacing.md),
@@ -235,21 +258,6 @@ class _HomeSearchBar extends StatelessWidget {
           borderRadius: BorderRadius.circular(999),
           borderSide: const BorderSide(color: AppColors.gold),
         ),
-      ),
-    );
-  }
-}
-
-class _RailLoading extends StatelessWidget {
-  const _RailLoading();
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: SizedBox(
-        width: 28,
-        height: 28,
-        child: CircularProgressIndicator(strokeWidth: 2.5),
       ),
     );
   }

@@ -7,7 +7,9 @@ import '../../../core/constants/app_spacing.dart';
 import '../../../core/router/app_router.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_text_styles.dart';
+import '../../../core/widgets/fade_slide_in.dart';
 import '../../../core/widgets/initials_avatar.dart';
+import '../../../core/widgets/skeleton.dart';
 import '../../auth/presentation/providers/auth_providers.dart';
 import '../domain/entities/booking.dart';
 import 'booking_screen.dart';
@@ -85,8 +87,14 @@ class _MyBookingsScreenState extends ConsumerState<MyBookingsScreen> {
           ),
           Expanded(
             child: bookingsAsync.when(
-              loading: () =>
-                  const Center(child: CircularProgressIndicator()),
+              loading: () => ListView.separated(
+                padding: const EdgeInsets.all(AppSpacing.screenMargin),
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: 2,
+                separatorBuilder: (_, _) =>
+                    const SizedBox(height: AppSpacing.md),
+                itemBuilder: (_, _) => const Skeleton(height: 196, radius: 16),
+              ),
               error: (e, _) => Center(
                 child: Text(
                   "Couldn't load your bookings.",
@@ -122,28 +130,30 @@ class _MyBookingsScreenState extends ConsumerState<MyBookingsScreen> {
                         const SizedBox(height: AppSpacing.md),
                     itemBuilder: (context, index) {
                       final booking = visible[index];
-                      if (_tab == 0) {
-                        return BookingCard(
-                          booking: booking,
-                          onReschedule: () => context.push(
-                            '${AppRoutes.shop}/${booking.shopId}/book',
-                            extra:
-                                BookingFlowArgs(existingBooking: booking),
-                          ),
-                          onCancel: () => _cancelBooking(booking),
-                        );
-                      }
-                      return BookingCard(
-                        booking: booking,
-                        onBookAgain: () => context.push(
-                          '${AppRoutes.shop}/${booking.shopId}/book',
-                          extra:
-                              BookingFlowArgs(services: booking.services),
-                        ),
-                        onRate: (stars) => ref
-                            .read(bookingActionsProvider.notifier)
-                            .rate(booking, stars),
-                      );
+                      final card = _tab == 0
+                          ? BookingCard(
+                              booking: booking,
+                              onReschedule: () => context.push(
+                                '${AppRoutes.shop}/${booking.shopId}/book',
+                                extra: BookingFlowArgs(
+                                  existingBooking: booking,
+                                ),
+                              ),
+                              onCancel: () => _cancelBooking(booking),
+                            )
+                          : BookingCard(
+                              booking: booking,
+                              onBookAgain: () => context.push(
+                                '${AppRoutes.shop}/${booking.shopId}/book',
+                                extra: BookingFlowArgs(
+                                  services: booking.services,
+                                ),
+                              ),
+                              onRate: (stars) => ref
+                                  .read(bookingActionsProvider.notifier)
+                                  .rate(booking, stars),
+                            );
+                      return FadeSlideIn(index: index, child: card);
                     },
                   ),
                 );

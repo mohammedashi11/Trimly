@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/constants/app_spacing.dart';
 import '../../../core/router/app_router.dart';
+import '../../../core/widgets/fade_slide_in.dart';
+import '../../../core/widgets/skeleton.dart';
 import 'providers/shop_providers.dart';
 import 'widgets/shop_card.dart';
 
@@ -18,7 +20,13 @@ class AllShopsScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Top Rated Near You')),
       body: shops.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
+        loading: () => ListView.separated(
+          padding: const EdgeInsets.all(AppSpacing.screenMargin),
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: 3,
+          separatorBuilder: (_, _) => const SizedBox(height: AppSpacing.md),
+          itemBuilder: (_, _) => const ShopCardSkeleton(),
+        ),
         error: (e, _) => const Center(child: Text('Something went wrong.')),
         data: (list) => ListView.separated(
           padding: const EdgeInsets.all(AppSpacing.screenMargin),
@@ -26,9 +34,12 @@ class AllShopsScreen extends ConsumerWidget {
           separatorBuilder: (_, _) => const SizedBox(height: AppSpacing.md),
           itemBuilder: (context, index) {
             final shop = list[index];
-            return ShopCard(
-              shop: shop,
-              onTap: () => context.push('${AppRoutes.shop}/${shop.id}'),
+            return FadeSlideIn(
+              index: index,
+              child: ShopCard(
+                shop: shop,
+                onTap: () => context.push('${AppRoutes.shop}/${shop.id}'),
+              ),
             );
           },
         ),

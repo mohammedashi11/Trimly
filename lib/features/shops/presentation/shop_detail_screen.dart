@@ -7,7 +7,9 @@ import '../../../core/router/app_router.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_text_styles.dart';
 import '../../../core/widgets/app_card.dart';
+import '../../../core/widgets/fade_slide_in.dart';
 import '../../../core/widgets/primary_button.dart';
+import '../../../core/widgets/skeleton.dart';
 import '../../bookings/domain/entities/booking.dart';
 import '../../bookings/presentation/booking_screen.dart';
 import '../../favorites/presentation/providers/favorites_providers.dart';
@@ -41,7 +43,26 @@ class _ShopDetailScreenState extends ConsumerState<ShopDetailScreen> {
 
     return Scaffold(
       body: shopAsync.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
+        loading: () => ListView(
+          padding: EdgeInsets.zero,
+          physics: const NeverScrollableScrollPhysics(),
+          children: const [
+            Skeleton(height: 340, radius: 0),
+            Padding(
+              padding: EdgeInsets.all(AppSpacing.screenMargin),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Skeleton(height: 180, radius: 16),
+                  SizedBox(height: AppSpacing.lg),
+                  Skeleton(height: 96, radius: 16),
+                  SizedBox(height: AppSpacing.md),
+                  Skeleton(height: 96, radius: 16),
+                ],
+              ),
+            ),
+          ],
+        ),
         error: (e, _) => Center(
           child: Text("We couldn't find that shop.",
               style: AppTextStyles.bodyMd),
@@ -94,18 +115,22 @@ class _ShopDetailBody extends ConsumerWidget {
                   0 => Column(
                       key: const ValueKey('services'),
                       children: [
-                        for (final service in shop.services) ...[
-                          ServiceTile(
-                            service: service,
-                            selected: selected.contains(service),
-                            onToggle: () {
-                              final notifier = ref.read(
-                                selectedServicesProvider(shop.id).notifier,
-                              );
-                              final next = {...notifier.state};
-                              if (!next.remove(service)) next.add(service);
-                              notifier.state = next;
-                            },
+                        for (final (index, service)
+                            in shop.services.indexed) ...[
+                          FadeSlideIn(
+                            index: index,
+                            child: ServiceTile(
+                              service: service,
+                              selected: selected.contains(service),
+                              onToggle: () {
+                                final notifier = ref.read(
+                                  selectedServicesProvider(shop.id).notifier,
+                                );
+                                final next = {...notifier.state};
+                                if (!next.remove(service)) next.add(service);
+                                notifier.state = next;
+                              },
+                            ),
                           ),
                           const SizedBox(height: AppSpacing.md),
                         ],

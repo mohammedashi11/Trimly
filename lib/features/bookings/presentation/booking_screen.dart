@@ -9,6 +9,7 @@ import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_text_styles.dart';
 import '../../../core/widgets/initials_avatar.dart';
 import '../../../core/widgets/primary_button.dart';
+import '../../../core/widgets/skeleton.dart';
 import '../../auth/presentation/providers/auth_providers.dart';
 import '../../shops/domain/entities/barber.dart';
 import '../../shops/domain/entities/barbershop.dart';
@@ -135,7 +136,27 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
         ],
       ),
       body: shopAsync.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
+        loading: () => ListView(
+          padding: const EdgeInsets.all(AppSpacing.screenMargin),
+          physics: const NeverScrollableScrollPhysics(),
+          children: const [
+            Skeleton(height: 24, width: 220, radius: 8),
+            SizedBox(height: AppSpacing.lg),
+            Row(
+              children: [
+                Skeleton.circle(size: 84),
+                SizedBox(width: AppSpacing.lg),
+                Skeleton.circle(size: 84),
+                SizedBox(width: AppSpacing.lg),
+                Skeleton.circle(size: 84),
+              ],
+            ),
+            SizedBox(height: AppSpacing.xl),
+            Skeleton(height: 96, radius: 16),
+            SizedBox(height: AppSpacing.xl),
+            Skeleton(height: 220, radius: 16),
+          ],
+        ),
         error: (e, _) => Center(
           child: Text("We couldn't load this shop.",
               style: AppTextStyles.bodyMd),
