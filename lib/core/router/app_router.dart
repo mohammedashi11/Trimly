@@ -9,6 +9,7 @@ import '../../features/onboarding/presentation/onboarding_screen.dart';
 import '../../features/shell/presentation/app_shell.dart';
 import '../../features/shops/presentation/all_shops_screen.dart';
 import '../../features/shops/presentation/home_screen.dart';
+import '../../features/shops/presentation/shop_detail_screen.dart';
 import '../../features/splash/presentation/splash_screen.dart';
 import '../theme/app_text_styles.dart';
 
@@ -80,18 +81,27 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '${AppRoutes.shop}/:id',
         pageBuilder: (context, state) => fadePage(
-          // Placeholder until the shop detail feature lands next phase.
-          child: Scaffold(
-            appBar: AppBar(),
-            body: Center(
-              child: Text(
-                state.pathParameters['id'] ?? '',
-                style: AppTextStyles.headlineMd,
-              ),
-            ),
-          ),
+          child: ShopDetailScreen(shopId: state.pathParameters['id']!),
           state: state,
         ),
+        routes: [
+          GoRoute(
+            path: 'book',
+            pageBuilder: (context, state) => fadePage(
+              // Placeholder until the booking flow lands next phase.
+              child: Scaffold(
+                appBar: AppBar(title: const Text('TRIMLY')),
+                body: Center(
+                  child: Text(
+                    'Booking flow arriving shortly.',
+                    style: AppTextStyles.bodyMd,
+                  ),
+                ),
+              ),
+              state: state,
+            ),
+          ),
+        ],
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) =>
